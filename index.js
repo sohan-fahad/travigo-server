@@ -44,7 +44,6 @@ async function run() {
         app.post("/booking", async (req, res) => {
             const result = await bookingCollection.insertOne(req.body)
             res.send(result)
-            console.log(result)
         })
         // BOOKING API
         app.get("/booking", async (req, res) => {
