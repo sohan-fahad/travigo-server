@@ -70,12 +70,18 @@ async function run() {
 
 
         // EMAIL FILTER
-        app.get("/booking/:email", async (req, res) => {
+        // app.get("/booking/:email", async (req, res) => {
+        //     console.log("Response from", req.params.email)
+        //     const email = req.params.email
+        //     const query = await bookingCollection.find({ email: email })
+        //     const result = query.toArray()
+        //     res.send(result)
+        // })
+        app.get("/booking/:email", async(req, res)=> {
             const email = req.params.email
-            const query = await bookingCollection.find({ email: email })
-            console.log(query)
-            const result = query.toArray()
-            console.log(result)
+            const query = await bookingCollection.find({email})
+            // console.log("query",query)
+            const result = await query.toArray()
             res.send(result)
         })
 
